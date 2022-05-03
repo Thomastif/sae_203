@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Biblio</title>
+	<link rel="stylesheet" href="css/sae_203.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.google.com/specimen/Darker+Grotesque#standard-styles" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	{% block accueil %}
+	{% endblock %}
+	<main>
+		<header id="go-to">
+			<img src="img/logo.png" alt="">
+			<nav>
+				<ul>
+					<li><a href="index.php">Accueil</a></li>
+					<li><a href="genre.php">Genre</a></li>
+					<li><a href="liste-artiste.php">Artistes</a></li>
+					<li><a href="likes.php">Vos likes</a></li>
+				</ul>
+				<a href="">Se connecter</a>	
+			</nav>
+		</header>
+		
+			{% block main %}
+			{% endblock %}
+		<footer>
+			<div class="liens">
+				<nav class="nav-footer">
+					<div>
+						<h3>Pages web :</h3>
+						<ol>
+							<li><a href="">Accueil</a></li>
+							<li><a href="">Genre</a></li>
+							<li><a href="">Artistes</a></li>
+							<li><a href="">Vos likes</a></li>
+							<li><a href="">Se connecter</a></li>
+						</ol>
+					</div>
+					<div>
+						<h3>A propos de Musiffay :</h3>
+						<ol>
+							<li><a href="">Le groupement</a></li>
+							<li><a href="">La gouvernance</a></li>
+							<li><a href="">Nous rejoindre</a></li>
+						</ol>
+					</div>
+					<div>
+						<h3>Contact :</h3>
+						<ol>
+							<li><a href="">musiffay@gmail.com</a></li>
+							<li><a href="">55 place de la concorde</a></li>
+							<li><a href="">Strasbourg 67000</a></li>
+						</ol>
+					</div>
+				</nav>
+			</div>
+			<div class="mentions-reseaux">
+				<ol>
+					<li><a href="">Contact</a></li>
+					<li><a href="">Mentions légales & CGU</a></li>
+					<li><a href="">Données personnelles</a></li>
+					<li><a href="">Gestion des cookies</a></li>
+				</ol>
+				<div class="reseaux">
+					<p>Suivez-nous sur :</p>
+					<i class="bi bi-instagram"></i>
+					<i class="bi bi-twitter"></i>
+				</div>
+			</div>
+		</footer>
+	</main>
+</body>
+
+</html>

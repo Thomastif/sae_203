@@ -1,0 +1,145 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body{
+    background-image: linear-gradient(to right bottom, #88407a, #813f7d, #793f7f, #713e81, #683e83, #514488, #374989, #134c86, #005079, #005166, #0f4f53, #2d4c46);
+    margin: 0;
+}
+
+main{
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #121212;
+}
+
+.arrive{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-image: linear-gradient(to right bottom, #bf5dac, #b65cb0, #ac5bb3, #a15bb7, #955bba, #7765c2, #546dc6, #2373c4, #007cb6, #00809f, #1f8187, #4c8076);
+}
+
+.arrive img{
+    width: 300px;
+    height: 300px;
+    
+}
+
+.arrive p{
+    font-size: 35px;
+    width: 570px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.774);
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.arrive a{
+    font-size: 25px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    font-weight: bold;
+    border: solid 4px rgb(0, 0, 0);
+    border-radius: 25px;
+    padding: 20px 30px;
+    font-family: 'Inter', sans-serif;
+    
+}
+
+.arrive a:hover{
+    background-image: linear-gradient(to right bottom, #88407a, #813f7d, #793f7f, #713e81, #683e83, #514488, #374989, #134c86, #005079, #005166, #0f4f53, #2d4c46);
+    color: white;
+    border-color: white;
+}
+
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000000;
+    margin-bottom: 60px;
+}
+
+header img{
+    width: 90px;
+    height: 90px;
+    margin-left: 20px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    height: 90px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li, nav a{
+    padding: 33px 25px;
+    text-decoration: unset;
+    font-size: 20px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+nav ul li:hover{
+    background-color: #2C2C2C;
+    text-decoration: underline;
+}
+
+h2 {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    margin-left: 20px;
+}
+
+.groupe-album{
+    display: flex;
+    justify-content: space-around;
+}
+
+.liste-album{
+    margin: 40px 0px;
+    background-color: #2C2C2C;
+    width: 192px;
+    height: 250px;
+    border-radius: 20px;
+}
+
+.liste-album img{
+    width: 182px;
+    height: 182px;
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.liste-album figcaption{
+    padding-left: 20px;
+}
+
+.liste-album p{
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 20px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+figcaption a  {
+    color: white;
+    text-decoration: unset;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}

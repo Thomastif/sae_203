@@ -1,0 +1,44 @@
+{% extends 'base.twig' %}
+
+{% block accueil %}
+
+    <div class="arrive">
+        <img src="img/logo.png" alt="">
+        <p>Une collection de musique à écouter sans modération</p>
+        <a href="#go-to">En voir plus</a>
+    </div>
+
+{% endblock %}
+
+{% block main %}
+    <h2>Nouvelles sorties :</h2>
+    <div class="groupe-album">
+        {% for element in albumnew %}
+        <figure class="liste-album">
+            <a href="album.php?id={{ element.id_album }}">
+                <img src="{{ element.album_pochette }}" alt="">
+                <figcaption>
+                    <p>{{ element.album_titre }}</p>
+                    <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
+                </figcaption>
+            </a>
+        </figure>
+        {% endfor %}
+    </div>
+    
+    <h2>Recommandé pour vous :</h2>
+    <div class="groupe-album">
+        {% for element in albumreco %}
+        <figure class="liste-album">
+            <a href="album.php?id={{ element.id_album }}">
+                <img src="{{ element.album_pochette }}" alt="">
+                <figcaption>
+                    <p>{{ element.album_titre }}</p>
+                    <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
+                </figcaption>
+            </a>
+        </figure>
+        {% endfor %}
+    </div>
+
+{% endblock %}

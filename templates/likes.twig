@@ -1,0 +1,24 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+
+    {% for element in likes %}
+    <div class="presentation">
+        <img src="{{ element.album_pochette }}" alt="">
+        <img src="{{ element.album_pochette }}" alt="">
+        <img src="{{ element.album_pochette }}" alt="">
+        <img src="{{ element.album_pochette }}" alt="">
+        <h1>Vos likes</h1>
+        <p>N musiques</p>
+    </div>
+
+    <div class="liste-musique">
+        <img src="{{ element.album_pochette }}" alt="">
+        <p>{{ element.musique_nom }}</p>
+        <a href="artiste.php?id={{ element.id_artiste }}">{{ element.artiste_nom }}</a>
+        <i class=""></i>
+        <p>{{ element.musique_duree }}</p>
+    </div>
+    {% endfor %}
+
+{% endblock %}

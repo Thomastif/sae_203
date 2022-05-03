@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+
+
+{% block main %}
+    <h2>Liste d'artiste disponible :</h2>
+    {% for element in artiste %}
+    <figure class="liste-album artiste">
+        <a href="artiste.php?id={{ element.id_artiste }}">
+            <img src="{{ element.artiste_photo }}" alt="">
+            <figcaption>
+                <p>{{ element.artiste_nom }}</p>
+            </figcaption>
+        </a>
+    </figure>
+    {% endfor %}
+{% endblock %}
