@@ -34,6 +34,27 @@
 		
 			{% block main %}
 			{% endblock %}
+
+		<aside>
+			<div class="requette">
+				<h2>CHATROOM</h2>
+				<form method="POST" action="">
+				<label for="chatbox_pseudo">Pseudo :</label>
+				<input type="text" class="chatbox_pseudo" name="chatbox_pseudo" >
+				<label for="chatbox_message">Message :</label>
+				<input type="text" name="chatbox_message" class='chatbox_message'>
+				<input type="submit" name="Envoyer">
+			</div>
+			<div class="chatbox">
+				{% for element in chat %}
+				<div>
+					<p>{{ element.chatbox_pseudo }}</p>
+					<p>{{ element.chatbox_message }}</p>
+				</div>
+				{% endfor %}
+			</div>
+		</aside>
+
 		<footer>
 			<div class="liens">
 				<nav class="nav-footer">

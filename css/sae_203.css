@@ -143,3 +143,79 @@ figcaption a  {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
 }
+
+aside{
+    margin-bottom: 40px;
+}
+
+
+footer {
+    background-color: #000000;
+    padding-top: 40px;
+}
+
+.nav-footer{
+    justify-content: space-around;
+    height: 160px;
+}
+
+.nav-footer div {
+    height: 173px;
+}
+
+.nav-footer h3{
+    font-family: 'Darker Grotesque', sans-serif;
+    color: white;
+    margin: 0;
+}
+
+.nav-footer ol{
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav-footer  a {
+    padding: 0;
+}
+
+.mentions-reseaux ol{
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin-top: 25px;
+    list-style-type: none;
+}
+
+.mentions-reseaux a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.reseaux {
+    color: white;
+}
+
+.reseaux p{
+    margin: 0;
+}
+
+.artiste{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.artiste a{
+    font-size: 20px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+.artiste figure{
+    margin: 0;
+}
+
+.artiste img{
+    object-fit: cover;
+}

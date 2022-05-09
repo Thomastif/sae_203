@@ -22,6 +22,7 @@ $pdo = connexion();
 // Récupération des données
 include('include/album.php');
 $musique = select_musique($pdo, $id);
+$album = select_album($pdo, $id);
 
 
 // Lancement du moteur Twig avec les données
@@ -29,5 +30,6 @@ echo $twig->render('album.twig', [
 //    'table' => $table,
 //    'ligne' => $ligne,
 	'id' => $id,
+	'album' => $album,
 	'musique' => $musique,
 ]);
