@@ -26,6 +26,7 @@ $albumreco = select_reco($pdo, $id);
 
 include('include/chat.php');
 $chat = select_chat($pdo, $id);
+$chatbox = select_chatbox($pdo);
 
 // Lancement du moteur Twig avec les données
 echo $twig->render('accueil.twig', [
@@ -34,5 +35,6 @@ echo $twig->render('accueil.twig', [
 	'id' => $id,
 	'albumnew' => $albumnew,
 	'albumreco' => $albumreco,
-	'chat' => $chat
+	'chat' => $chat,
+	'chatbox' => $chatbox,
 ]);

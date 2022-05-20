@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 29 avr. 2022 à 13:46
+-- Généré le : lun. 09 mai 2022 à 10:10
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.1
 
@@ -76,6 +76,27 @@ INSERT INTO `artiste` (`id_artiste`, `artiste_nom`, `artiste_photo`, `artiste_de
 (2, 'Damso', 'img/damso.jpg', 'Damso, de son vrai nom William Kalubi Mwamba, né le 10 mai 1992 à Kinshasa, est un rappeur et auteur-compositeur-interprète belgo-congolais. Actif dans le monde du rap depuis 2006, Damso débute dans la publication de projets avec sa première mixtape Salle'),
 (3, 'PLK', 'img/plk.jpg', 'PLK, né le 15 avril 1997, est un rappeur français. Il est membre du groupe Panama Bende et du trio La Confrérie, ce dernier étant composé de trois membres de Paname Bende. En 2015 et 2016, il sort ses premiers EP, Peur de me tromper et Dedans.'),
 (4, 'Tsew The Kid\r\n', 'img/tsew.jpg', 'Tsew The Kid né le 3 décembre 1996 dans le 15ème arrondissement de Paris.\r\nIl grandit dans la ville d’Antananarivo, la capitale de Madagascar, avec son père, sa mère et sa grande sœur. La famille reviendra en France en 2001 pour s\'installer à Savigny-sur-');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `chatbox`
+--
+
+CREATE TABLE `chatbox` (
+  `id_chatbox` bigint(20) UNSIGNED NOT NULL,
+  `chatbox_pseudo` varchar(255) NOT NULL,
+  `chatbox_message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `chatbox`
+--
+
+INSERT INTO `chatbox` (`id_chatbox`, `chatbox_pseudo`, `chatbox_message`) VALUES
+(1, 'toto', 'voici un message'),
+(2, 'toto', 'voici un message'),
+
 
 -- --------------------------------------------------------
 
@@ -601,6 +622,13 @@ ALTER TABLE `artiste`
   ADD UNIQUE KEY `id_artiste` (`id_artiste`);
 
 --
+-- Index pour la table `chatbox`
+--
+ALTER TABLE `chatbox`
+  ADD PRIMARY KEY (`id_chatbox`),
+  ADD UNIQUE KEY `id_chatbox` (`id_chatbox`);
+
+--
 -- Index pour la table `musique`
 --
 ALTER TABLE `musique`
@@ -644,6 +672,12 @@ ALTER TABLE `album`
 --
 ALTER TABLE `artiste`
   MODIFY `id_artiste` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `chatbox`
+--
+ALTER TABLE `chatbox`
+  MODIFY `id_chatbox` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT pour la table `musique`

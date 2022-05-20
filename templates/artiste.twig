@@ -2,27 +2,28 @@
 
 
 {% block main %}
-
-
+    <section>
+        {% for artiste in artiste %}
+        <div class="presentation">
+            <img src="{{ artiste.artiste_photo }}" alt="{{ artiste.artiste_alt }}">
+            <h1>{{ artiste.artiste_nom }}</h1>
+            <p>{{ artiste.artiste_description }}</p>
+        </div>
+        {% endfor %}
     
-    {% for artiste in artiste %}
-    <div class="presentation">
-        <img src="{{ artiste.artiste_photo }}" alt="">
-        <h1>{{ artiste.artiste_nom }}</h1>
-        <p>{{ artiste.artiste_description }}</p>
-    </div>
-    {% endfor %}
-   
 
-    <h2>Discographie de {{ artiste.artiste_nom }} :</h2>
-    {% for element in albumartiste %}
-    <figure class="liste-album album">
-        <a href="album.php?id={{ element.id_album }}">
-            <img src="{{ element.album_pochette }}" alt="">
-            <figcaption>
-                <p>{{ element.album_titre }}</p>
-            </figcaption>
-        </a>
-    </figure>
-    {% endfor %}
+        <h2>Discographie de {{ artiste.artiste_nom }} :</h2>
+        <div class="groupe">
+            {% for element in albumartiste %}
+            <a href="album.php?id={{ element.id_album }}">
+                <article class="liste-album artiste-album">
+                    <img src="{{ element.album_pochette }}" alt="{{ element.album_alt }}">
+                    <div>
+                        <p>{{ element.album_titre }}</p>
+                    </div>
+                </article>
+            </a>
+        {% endfor %}
+        </div>
+    </section>
 {% endblock %}

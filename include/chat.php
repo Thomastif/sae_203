@@ -2,79 +2,53 @@
 
 function select_chat()
 {
+    require_once('include/connexion.php');
     $pdo = connexion();
 
     // initialisation des variables
-    $chatbox_pseudo = $chatbox_message ="";
     $param_message = $param_pseudo = "";
-var_dump($_POST);
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-            //validation psuedo
-            if(empty($_POST["chatbox_pseudo"])){}
-            
-            else{
-                //requête ajout de la description
-                $sql = "SELECT chatbox_pseudo FROM chatbox WHERE chatbox_pseudo = :chatbox_pseudo";
+        $sql = "INSERT INTO chatbox (chatbox_pseudo, chatbox_message) VALUES (:chatbox_pseudo, :chatbox_message)";
+
+        if(!empty($_POST["chatbox_pseudo"] ) && !empty ($_POST["chatbox_message"])){
+
+            if($query = $pdo -> prepare($sql)){ 
+
+                $param_message= strip_tags($_POST["chatbox_message"]);
+                $param_pseudo= strip_tags($_POST["chatbox_pseudo"]);
+
+                $query->bindParam(":chatbox_pseudo", $param_pseudo, PDO::PARAM_STR);
+                $query->bindParam(":chatbox_message", $param_message, PDO::PARAM_STR);
         
-                if($query = $pdo->prepare($sql)){
-                    $query->bindParam(":chatbox_pseudo", $param_pseudo, PDO::PARAM_STR);
-                    $param_pseudo = $_POST["chatbox_pseudo"];
 
-
-                    if($query->execute()){
-                        $param_pseudo = $_POST["chatbox_pseudo"];
-                    }
-                }
+                    $query->execute();
             }
-        
-
-            //validation de la description de la catégorie
-            if(!empty($_POST["chatbox_message"])){$param_message = $_POST["chatbox_message"];}
-            else{
-                //requête ajout de la description
-                $sql = "SELECT chatbox_message FROM chatbox WHERE chatbox_message = :chatbox_message";
-        
-                if($query = $pdo->prepare($sql)){
-                    $query->bindParam(":chatbox_message", $param_pseudo, PDO::PARAM_STR);
-        
-                    $param_message = $_POST["chatbox_message"];
-        
-                    if($query->execute()){
-                        $param_message = $_POST["chatbox_message"];
-                        
-                    }
-                }
-            }
-
-                //insertion des données dans la bdd
-        
-                $sql = "INSERT INTO chatbox (chatbox_pseudo, chatbox_message) VALUES (:chatbox_pseudo, :chatbox_message)";
-        
-                if($query = $pdo->prepare($sql)){
-        
-                    $query->bindParam(":chatbox_pseudo", $param_pseudo, PDO::PARAM_STR);
-                    $query->bindParam(":chatbox_message", $param_message, PDO::PARAM_STR);
-        
-                    $param_pseudo = $chatbox_pseudo;
-                    $param_message = $chatbox_message;
-        
-                    //execution de $query
-        
-                    if($query->execute()){  
-
-                        //$sql ="SELECT * FROM chatbox ORDER BY id_chatbox DESC LIMIT 0,5";
-//
-                        //$limitemsg = $pdo ->prepare($sql);
-                        //while($message = $limitemsg->fetch());
-                            }
-                    else{ 
-                        return;
-                    } 
-                    unset($query);
-                }
-                unset($pdo);
-            
-        
+        }
     }
+}
+                        //var_dump($param_pseudo, $param_message);
+                            
+                    
+                    //unset($query);
+                
+               // unset($pdo);
+
+
+function select_chatbox($pdo)
+{
+    $sql ="SELECT * FROM chatbox ORDER BY id_chatbox DESC LIMIT 0,5";
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+
+    if ($query->errorCode() == '00000') {
+    // récupération des données dans un tableau
+    $tableau = $query->fetchALL(PDO::FETCH_OBJ);
+    } 
+    else {
+    echo '<p>Erreur dans la requête : ' . $query->errorInfo()[2] . '</p>';
+    $tableau = null;}
+    
+    return $tableau;
 }

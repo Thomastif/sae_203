@@ -1,43 +1,51 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <h2>Rap :</h2>
-    {% for element in albumrap %}
-    <figure class="liste-album">
-        <a href="album.php?id={{ element.id_album }}">
-            <img src="{{ element.album_pochette }}" alt="">
-            <figcaption>
-                <p>{{ element.album_titre }}</p>
-                <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
-            </figcaption>
-        </a>
-    </figure>
-    {% endfor %}
+    <section>
+        <h2>Rap :</h2>
+        <div class="groupe">
+            {% for element in albumrap %}
+            <a href="album.php?id={{ element.id_album }}">
+                <article class="liste-album genre-album">
+                    <img src="{{ element.album_pochette }}" alt="{{ element.album_alt }}">
+                    <div>
+                        <p>{{ element.album_titre }}</p>
+                        <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+        </div>
 
-    <h2>Pop :</h2>
-    {% for element in albumpop %}
-    <figure class="liste-album">
-        <a href="album.php?id={{ element.id_album }}">
-            <img src="{{ element.album_pochette }}" alt="">
-            <figcaption>
-                <p>{{ element.album_titre }}</p>
-                <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
-            </figcaption>
-        </a>
-    </figure>
-    {% endfor %}
+        <h2>Pop :</h2>
+        <div class="groupe">
+            {% for element in albumpop %}
+            <a href="album.php?id={{ element.id_album }}"></a>
+                <article class="liste-album genre-album">
+                    <img src="{{ element.album_pochette }}" alt="{{ element.album_alt }}">
+                    <div>
+                        <p>{{ element.album_titre }}</p>
+                        <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+        </div>
 
-    <h2>Hip-Hop :</h2>
-    {% for element in albumhip %}
-    <figure class="liste-album">
-        <a href="album.php?id={{ element.id_album }}">
-            <img src="{{ element.album_pochette }}" alt="">
-            <figcaption>
-                <p>{{ element.album_titre }}</p>
-                <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
-            </figcaption>
-        </a>
-    </figure>
-    {% endfor %}
+        <h2>Hip-Hop :</h2>
+        <div class="groupe">
+            {% for element in albumhip %}
+            <a href="album.php?id={{ element.id_album }}">
+                <article class="liste-album genre-album">
+                    <img src="{{ element.album_pochette }}" alt="{{ element.album_alt }}">
+                    <div>
+                        <p>{{ element.album_titre }}</p>
+                        <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
 
 {% endblock %}

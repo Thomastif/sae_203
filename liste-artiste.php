@@ -23,11 +23,17 @@ $pdo = connexion();
 include('include/liste-artiste.php');
 $artiste = select_artiste($pdo, $id);
 
+include('include/chat.php');
+$chat = select_chat($pdo, $id);
+$chatbox = select_chatbox($pdo);
+
 
 // Lancement du moteur Twig avec les données
 echo $twig->render('liste-artiste.twig', [
 //    'table' => $table,
 //    'ligne' => $ligne,
 	'id' => $id,
-	'artiste' => $artiste
+	'artiste' => $artiste,
+	'chat' => $chat,
+	'chatbox' => $chatbox,
 ]);

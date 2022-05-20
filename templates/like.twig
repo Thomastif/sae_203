@@ -1,0 +1,51 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+
+    <div class="presentation">
+        <img src="img/like.png" alt="">
+        <h1>Titres likées</h1>
+    </div>
+    {# {% for items in musique %} 
+    <div class="liste-musique">
+        <img src="{{ items.album_pochette }}" alt="">
+        <p>{{ items.musique_nom }}</p>
+        <a href="artiste.php?id={{ items.id_artiste }}">{{ items.artiste_nom }}</a>
+        <form action="" method="post">
+            <button value="{{ items.id_musique }}" name="btnlike" type="submit">{{ items.musique_btn }}</button>
+        </form>
+        
+        <p>{{ items.musique_duree }}</p>
+    </div>
+    {% endfor %} #}
+
+    {% for items in musique_like %}
+    <section>
+        {% if loop.first %} 
+            <div class="liste-musique">
+                <img src="{{ items.album_pochette }}" alt="{{ element.album_alt }}">
+                <p>{{ items.musique_nom }}</p>
+                <a href="artiste.php?id={{ items.id_artiste }}">{{ items.artiste_nom }}</a>
+                <form action="" method="post">
+                    <button value="{{ items.id_musique }}" name="btnlike" type="submit">{{ items.musique_btn }}</button>
+                </form>
+                <p>{{ items.musique_duree }}</p>
+            </div>
+        {% else %}
+            {% if items.musique_nom == musique[loop.index0 -1].musique_nom %}
+                <a href="artiste.php?id={{ items.id_artiste }}">{{ items.artiste_nom }}</a>
+                {% else %}
+                    <div class="liste-musique">
+                        <img src="{{ items.album_pochette }}" alt="{{ element.album_alt }}">
+                        <p>{{ items.musique_nom }}</p>
+                        <a href="artiste.php?id={{ items.id_artiste }}">{{ items.artiste_nom }}</a>
+                        <form action="" method="post">
+                            <button value="{{ items.id_musique }}" name="btnlike" type="submit">{{ items.musique_btn }}</button>
+                        </form>
+                        <p>{{ items.musique_duree }}</p>
+                    </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </section>
+{% endblock %}

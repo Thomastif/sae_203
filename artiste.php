@@ -27,6 +27,10 @@ $artiste = select_artiste($pdo, $id);
 include('include/albumartiste.php');
 $albumartiste = select_albumartiste($pdo, $id);
 
+include('include/chat.php');
+$chat = select_chat($pdo, $id);
+$chatbox = select_chatbox($pdo);
+
 
 
 // Lancement du moteur Twig avec les données
@@ -35,5 +39,7 @@ echo $twig->render('artiste.twig', [
 //    'ligne' => $ligne,
 	'id' => $id,
 	'albumartiste' => $albumartiste,
-	'artiste' => $artiste
+	'artiste' => $artiste,
+	'chat' => $chat,
+	'chatbox' => $chatbox,
 ]);

@@ -20,24 +20,21 @@ $pdo = connexion();
 //$ligne = select_ligne_unique($pdo, $id);
 
 // Récupération des données
-include('include/genre.php');
-$albumpop = select_pop($pdo, $id);
-$albumrap = select_rap($pdo, $id);
-$albumhip = select_hip($pdo, $id);
-
 include('include/chat.php');
 $chat = select_chat($pdo, $id);
 $chatbox = select_chatbox($pdo);
 
+include('include/like.php');
+$like = select_like($pdo,$_POST["btnlike"]);
+$musique_like = select_musique_like($pdo);
 
 // Lancement du moteur Twig avec les données
-echo $twig->render('genre.twig', [
+echo $twig->render('like.twig', [
 //    'table' => $table,
 //    'ligne' => $ligne,
 	'id' => $id,
-	'albumpop' => $albumpop,
-	'albumrap' => $albumrap,
-	'albumhip' => $albumhip,
+	'like' => $like,
 	'chat' => $chat,
 	'chatbox' => $chatbox,
+	'musique_like' => $musique_like
 ]);

@@ -24,6 +24,12 @@ include('include/album.php');
 $musique = select_musique($pdo, $id);
 $album = select_album($pdo, $id);
 
+include('include/chat.php');
+$chat = select_chat($pdo, $id);
+$chatbox = select_chatbox($pdo);
+
+include('include/like.php');
+$like = select_like($pdo,$_POST["btnlike"]);
 
 // Lancement du moteur Twig avec les données
 echo $twig->render('album.twig', [
@@ -32,4 +38,7 @@ echo $twig->render('album.twig', [
 	'id' => $id,
 	'album' => $album,
 	'musique' => $musique,
+	'like' => $like,
+	'chat' => $chat,
+	'chatbox' => $chatbox,
 ]);

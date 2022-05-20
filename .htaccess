@@ -1,0 +1,5 @@
+ErrorDocument 404 /sae_203/erreur/erreur404.html
+
+Options -Indexes
+
+ErrorDocument 403 /sae_203/erreur/erreur403.html

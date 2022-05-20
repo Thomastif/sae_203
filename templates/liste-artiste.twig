@@ -2,17 +2,19 @@
 
 
 {% block main %}
-    <h2>Liste d'artiste disponible :</h2>
-    <div class="artiste">
-        {% for element in artiste %}
-        <figure class="liste-album ">
+    <section>
+        <h2>Liste d'artiste disponible :</h2>
+        <div class="artiste">
+            {% for element in artiste %}
             <a href="artiste.php?id={{ element.id_artiste }}">
-                <img src="{{ element.artiste_photo }}" alt="">
-                <figcaption>
-                    <p>{{ element.artiste_nom }}</p>
-                </figcaption>
+                <article class="liste-album ">
+                    <img src="{{ element.artiste_photo }}" alt="{{ element.artiste_alt }}">
+                    <div>
+                        <p>{{ element.artiste_nom }}</p>
+                    </div>
+                </article>
             </a>
-        </figure>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

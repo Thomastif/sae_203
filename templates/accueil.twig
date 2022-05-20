@@ -1,9 +1,53 @@
 {% extends 'base.twig' %}
 
 {% block accueil %}
-
+    
     <div class="arrive">
-        <img src="img/logo.png" alt="">
+        <div class="blob-logo">
+            <div class="blob">
+                <svg viewBox="0 0 800 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+                    <g transform="translate(165.30972290039062, -3.1034011840820312)">
+                    <path fill="rgba(0, 136, 236, 1)">
+                        <animate attributeName="d"
+                            dur="5000ms" 
+                            repeatCount="indefinite"
+
+                            values="M447,297Q414,344,387,392Q360,440,305,454Q250,468,188.5,466Q127,464,108,403.5Q89,343,66.5,296.5Q44,250,70.5,206Q97,162,128.5,128Q160,94,205,80.5Q250,67,310,55Q370,43,415.5,85.5Q461,128,470.5,189Q480,250,447,297Z;
+                            
+                            M444.5,308Q451,366,397,388.5Q343,411,296.5,426.5Q250,442,198,436Q146,430,94.5,400Q43,370,28.5,310Q14,250,34.5,193.5Q55,137,106.5,114Q158,91,204,64Q250,37,305,48Q360,59,398,101Q436,143,437,196.5Q438,250,444.5,308Z;
+
+                            M434,300Q423,350,396.5,404Q370,458,310,462Q250,466,204,437.5Q158,409,117.5,379.5Q77,350,73,300Q69,250,55,190Q41,130,86,87Q131,44,190.5,54Q250,64,309.5,54Q369,44,393,99Q417,154,431,202Q445,250,434,300Z;
+                            
+                            M447,297Q414,344,387,392Q360,440,305,454Q250,468,188.5,466Q127,464,108,403.5Q89,343,66.5,296.5Q44,250,70.5,206Q97,162,128.5,128Q160,94,205,80.5Q250,67,310,55Q370,43,415.5,85.5Q461,128,470.5,189Q480,250,447,297Z">
+                        </animate>
+                    </path>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="blob glow">
+                <svg viewBox="0 0 800 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+                    <g transform="translate(165.30972290039062, -3.1034011840820312)">
+                    <path fill="rgba(0, 136, 236, 1)">
+                        <animate attributeName="d"
+                            dur="5000ms" 
+                            repeatCount="indefinite"
+
+                            values="M447,297Q414,344,387,392Q360,440,305,454Q250,468,188.5,466Q127,464,108,403.5Q89,343,66.5,296.5Q44,250,70.5,206Q97,162,128.5,128Q160,94,205,80.5Q250,67,310,55Q370,43,415.5,85.5Q461,128,470.5,189Q480,250,447,297Z;
+                            
+                            M444.5,308Q451,366,397,388.5Q343,411,296.5,426.5Q250,442,198,436Q146,430,94.5,400Q43,370,28.5,310Q14,250,34.5,193.5Q55,137,106.5,114Q158,91,204,64Q250,37,305,48Q360,59,398,101Q436,143,437,196.5Q438,250,444.5,308Z;
+
+                            M434,300Q423,350,396.5,404Q370,458,310,462Q250,466,204,437.5Q158,409,117.5,379.5Q77,350,73,300Q69,250,55,190Q41,130,86,87Q131,44,190.5,54Q250,64,309.5,54Q369,44,393,99Q417,154,431,202Q445,250,434,300Z;
+                            
+                            M447,297Q414,344,387,392Q360,440,305,454Q250,468,188.5,466Q127,464,108,403.5Q89,343,66.5,296.5Q44,250,70.5,206Q97,162,128.5,128Q160,94,205,80.5Q250,67,310,55Q370,43,415.5,85.5Q461,128,470.5,189Q480,250,447,297Z">
+                        </animate>
+                    </path>
+                    </g>
+                </svg>
+            </div>
+            <img src="img/logo.png" alt="">
+        </div>
+       
         <p>Une collection de musique à écouter sans modération</p>
         <a href="#go-to">En voir plus</a>
     </div>
@@ -11,34 +55,36 @@
 {% endblock %}
 
 {% block main %}
-    <h2>Nouvelles sorties :</h2>
-    <div class="groupe-album">
-        {% for element in albumnew %}
-        <figure class="liste-album">
+    <section>
+        <h2>Nouvelles sorties :</h2>
+        <div class="groupe-album">
+            {% for element in albumnew %}
             <a href="album.php?id={{ element.id_album }}">
-                <img src="{{ element.album_pochette }}" alt="">
-                <figcaption>
-                    <p>{{ element.album_titre }}</p>
-                    <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
-                </figcaption>
+                <article class="liste-album">
+                    <img src="{{ element.album_pochette }}" alt="{{ element.album_alt }}">
+                    <div>
+                        <p>{{ element.album_titre }}</p>
+                        <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
+                    </div>
+                </article>
             </a>
-        </figure>
-        {% endfor %}
-    </div>
-    
-    <h2>Recommandé pour vous :</h2>
-    <div class="groupe-album">
-        {% for element in albumreco %}
-        <figure class="liste-album">
+            {% endfor %}
+        </div>
+        
+        <h2>Recommandé pour vous :</h2>
+        <div class="groupe-album">
+            {% for element in albumreco %}
             <a href="album.php?id={{ element.id_album }}">
-                <img src="{{ element.album_pochette }}" alt="">
-                <figcaption>
-                    <p>{{ element.album_titre }}</p>
-                    <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
-                </figcaption>
+                <article class="liste-album">
+                    <img src="{{ element.album_pochette }}" alt="{{ element.album_alt }}">
+                    <div>
+                        <p>{{ element.album_titre }}</p>
+                        <a href="artiste.php?id={{ element.id_artiste }}">{{element.artiste_nom}}</a>
+                    </div>
+                </article>
             </a>
-        </figure>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+    </section>
 
 {% endblock %}

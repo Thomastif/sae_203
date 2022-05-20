@@ -9,7 +9,6 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.google.com/specimen/Darker+Grotesque#standard-styles" rel="stylesheet">
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
@@ -26,9 +25,9 @@
 					<li><a href="index.php">Accueil</a></li>
 					<li><a href="genre.php">Genre</a></li>
 					<li><a href="liste-artiste.php">Artistes</a></li>
-					<li><a href="likes.php">Vos likes</a></li>
+					<li><a href="like.php">Vos likes</a></li>
 				</ul>
-				<a href="">Se connecter</a>	
+				<a href="seco.php">Se connecter</a>	
 			</nav>
 		</header>
 		
@@ -39,17 +38,18 @@
 			<div class="requette">
 				<h2>CHATROOM</h2>
 				<form method="POST" action="">
-				<label for="chatbox_pseudo">Pseudo :</label>
-				<input type="text" class="chatbox_pseudo" name="chatbox_pseudo" >
-				<label for="chatbox_message">Message :</label>
-				<input type="text" name="chatbox_message" class='chatbox_message'>
-				<input type="submit" name="Envoyer">
+					<label for="chatbox_pseudo">Pseudo :</label>
+					<input type="text" class="chatbox_pseudo" name="chatbox_pseudo" >
+					<label for="chatbox_message">Message :</label>
+					<input type="text" maxlength="255" name="chatbox_message" class='chatbox_message'>
+					<input type="submit" class="button" name="Envoyer">
+				</form>
 			</div>
 			<div class="chatbox">
-				{% for element in chat %}
+				{% for items in chatbox %}
 				<div>
-					<p>{{ element.chatbox_pseudo }}</p>
-					<p>{{ element.chatbox_message }}</p>
+					<p>{{ items.chatbox_pseudo }}</p>
+					<p>{{ items.chatbox_message }}</p>
 				</div>
 				{% endfor %}
 			</div>
@@ -61,43 +61,38 @@
 					<div>
 						<h3>Pages web :</h3>
 						<ol>
-							<li><a href="">Accueil</a></li>
-							<li><a href="">Genre</a></li>
-							<li><a href="">Artistes</a></li>
-							<li><a href="">Vos likes</a></li>
-							<li><a href="">Se connecter</a></li>
+							<li><a href="index.php">Accueil</a></li>
+							<li><a href="genre.php">Genre</a></li>
+							<li><a href="liste-artiste.php">Artistes</a></li>
+							<li><a href="like.php">Vos likes</a></li>
+							<li><a href="seco.php">Se connecter</a></li>
 						</ol>
 					</div>
 					<div>
 						<h3>A propos de Musiffay :</h3>
 						<ol>
-							<li><a href="">Le groupement</a></li>
-							<li><a href="">La gouvernance</a></li>
-							<li><a href="">Nous rejoindre</a></li>
+							<li><a href="group.php">Le groupement</a></li>
+							<li><a href="gouv.php">La gouvernance</a></li>
+							<li><a href="join.php">Nous rejoindre</a></li>
 						</ol>
 					</div>
 					<div>
 						<h3>Contact :</h3>
 						<ol>
-							<li><a href="">musiffay@gmail.com</a></li>
-							<li><a href="">55 place de la concorde</a></li>
-							<li><a href="">Strasbourg 67000</a></li>
+							<li><a href="send-mail.php">musiffay@gmail.com</a></li>
+							<li><a href="https://www.google.fr/maps/place/55+Pl.+de+la+Concorde,+75008+Paris/@48.8654915,2.3194866,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66fd2b8ae120b:0xa96bd0e00735dc26!8m2!3d48.8654915!4d2.3216753" target="_blank">55 place de la concorde</a></li>
+							<li><a href="https://www.google.fr/maps/place/Strasbourg/@48.5690532,7.6920396,12z/data=!3m1!4b1!4m5!3m4!1s0x4796c8495e18b2c1:0x971a483118e7241f!8m2!3d48.5734053!4d7.7521113" target="_blank">Strasbourg 67000</a></li>
 						</ol>
 					</div>
 				</nav>
 			</div>
-			<div class="mentions-reseaux">
+			<div class="mentions">
 				<ol>
-					<li><a href="">Contact</a></li>
-					<li><a href="">Mentions légales & CGU</a></li>
-					<li><a href="">Données personnelles</a></li>
-					<li><a href="">Gestion des cookies</a></li>
+					<li><a href="cont.php">Contact</a></li>
+					<li><a href="mention.php">Mentions légales & CGU</a></li>
+					<li><a href="donne.php">Données personnelles</a></li>
+					<li><a href="cookie.php">Gestion des cookies</a></li>
 				</ol>
-				<div class="reseaux">
-					<p>Suivez-nous sur :</p>
-					<i class="bi bi-instagram"></i>
-					<i class="bi bi-twitter"></i>
-				</div>
 			</div>
 		</footer>
 	</main>
